@@ -32,6 +32,7 @@
 @interface JSQMessagesViewController : UIViewController <JSQMessagesCollectionViewDataSource,
                                                          JSQMessagesCollectionViewDelegateFlowLayout,
                                                          UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewBottomConstraint;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarBottomLayoutGuide;
