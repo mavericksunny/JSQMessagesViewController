@@ -37,6 +37,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarBottomLayoutGuide;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarHeightConstraint;
+
 /**
  *  Returns the collection view object managed by this view controller.
  *  This view controller is the collection view's data source and delegate.
@@ -198,6 +200,9 @@
  *  @return An initialized `JSQMessagesViewController` object if successful, `nil` otherwise.
  */
 + (instancetype)messagesViewController;
+
+- (void)jsq_setToolbarBottomLayoutGuideConstant:(CGFloat)constant;
+
 
 #pragma mark - Messages view controller
 
