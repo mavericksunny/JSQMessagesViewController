@@ -90,6 +90,8 @@
 /**
  *  The object that acts as the delegate for the cell.
  */
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
+
 @property (weak, nonatomic) id<JSQMessagesCollectionViewCellDelegate> delegate;
 
 /**
