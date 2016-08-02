@@ -23,6 +23,7 @@
 
 @class JSQMessagesInputToolbar;
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The `JSQMessagesInputToolbarDelegate` protocol defines methods for interacting with
@@ -62,12 +63,12 @@
 /**
  *  The object that acts as the delegate of the toolbar.
  */
-@property (weak, nonatomic) id<JSQMessagesInputToolbarDelegate> delegate;
+@property (weak, nonatomic, nullable) id<JSQMessagesInputToolbarDelegate> delegate;
 
 /**
  *  Returns the content view of the toolbar. This view contains all subviews of the toolbar.
  */
-@property (weak, nonatomic, readonly) JSQMessagesToolbarContentView *contentView;
+@property (weak, nonatomic, readonly, nullable) JSQMessagesToolbarContentView *contentView;
 
 /**
  *  A boolean value indicating whether the send button is on the right side of the toolbar or not.
@@ -83,6 +84,15 @@
 @property (assign, nonatomic) BOOL sendButtonOnRight;
 
 /**
+ *  Specify if the send button should be enabled automatically when the `textView` contains text.
+ *  The default value is `YES`.
+ *
+ *  @discussion If `YES`, the send button will be enabled if the `textView` contains text. Otherwise,
+ *  you are responsible for determining when to enable/disable the send button.
+ */
+@property (assign, nonatomic) BOOL enablesSendButtonAutomatically;
+
+/**
  *  Specifies the default (minimum) height for the toolbar. The default value is `44.0f`. This value must be positive.
  */
 @property (assign, nonatomic) CGFloat preferredDefaultHeight;
@@ -93,18 +103,14 @@
 @property (assign, nonatomic) NSUInteger maximumHeight;
 
 /**
- *  Enables or disables the send button based on whether or not its `textView` has text.
- *  That is, the send button will be enabled if there is text in the `textView`, and disabled otherwise.
- */
-- (void)toggleSendButtonEnabled;
-
-/**
  *  Loads the content view for the toolbar.
  *
  *  @discussion Override this method to provide a custom content view for the toolbar.
  *
- *  @return An initialized `JSQMessagesToolbarContentView` if successful, otherwise `nil`.
+ *  @return An initialized `JSQMessagesToolbarContentView`.
  */
 - (JSQMessagesToolbarContentView *)loadToolbarContentView;
 
 @end
+
+NS_ASSUME_NONNULL_END
